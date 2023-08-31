@@ -6,12 +6,24 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-  hide = true;
+  hide = "password";
+  hidePasTex: boolean = true;
   constructor(
     private _snackBar: SnackbarService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  hideShow() {
+    if (this.hide === "password") {
+      this.hide = "text"
+      this.hidePasTex = true
+    }
+    else {
+      this.hide = "password"
+      this.hidePasTex = false;
+    }
   }
 
 }

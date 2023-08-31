@@ -12,21 +12,14 @@
         <mat-form-field class="example-full-width">
           <mat-label>Password</mat-label>
           <!-- <mat-icon matPrefix>lock</mat-icon> -->
-          <input matInput [type]="hide ? 'password' : 'text'" placeholder="Type your password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+          <input matInput [type]="hide" placeholder="Type your password">
+          <span mat-icon-button matSuffix (click)="hideShow()" >
+            <mat-icon>{{hidePasTex ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </span>
         </mat-form-field>
 
         <p class="forgot-password">Forgot Password?</p>
-        <button mat-raised-button class="login-button">Login</button>
-        <p class="orSignUp">Or Sign Up Using</p>
-        <span class="fatwgoIcon">
-          <i class="fab fa-facebook"></i> &nbsp;
-          <i class="fab fa-twitter"></i>&nbsp;
-          <i class="fab fa-google"></i>
-        </span>
+        <button type="submit" mat-raised-button class="login-button">Login</button>
         <p class="orSignUpSe">Or Sign Up Using</p>
         <button mat-flat-button class="orSignUpButtonLog">SIGN UP</button>
       </form>

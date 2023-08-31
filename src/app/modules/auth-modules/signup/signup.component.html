@@ -10,10 +10,10 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-            <mat-label>Contact Number</mat-label>
-            <!-- <mat-icon matPrefix>account_circle</mat-icon> -->
-            <input matInput placeholder="Type your contact number">
-          </mat-form-field>
+          <mat-label>Contact Number</mat-label>
+          <!-- <mat-icon matPrefix>account_circle</mat-icon> -->
+          <input matInput placeholder="Type your contact number">
+        </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
@@ -25,23 +25,20 @@
           <mat-label>Password</mat-label>
           <!-- <mat-icon matPrefix>lock</mat-icon> -->
           <input matInput [type]="hide ? 'password' : 'text'" placeholder="Type your password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+          <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
+          </span>
         </mat-form-field>
         <button mat-raised-button class="login-button">Signup</button>
 
-        <!-- <p class="forgot-password">Forgot Password?</p>
-        <button mat-raised-button class="login-button">Login</button>
         <p class="orSignUp">Or Sign Up Using</p>
         <span class="fatwgoIcon">
           <i class="fab fa-facebook"></i> &nbsp;
           <i class="fab fa-twitter"></i>&nbsp;
           <i class="fab fa-google"></i>
         </span>
-        <p class="orSignUpSe">Or Sign Up Using</p>
-        <button mat-flat-button class="orSignUpButton">SIGN UP</button> -->
+
       </form>
     </div>
   </div>
