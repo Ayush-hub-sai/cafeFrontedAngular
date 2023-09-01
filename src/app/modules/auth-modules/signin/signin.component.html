@@ -13,7 +13,7 @@
           <mat-label>Password</mat-label>
           <!-- <mat-icon matPrefix>lock</mat-icon> -->
           <input matInput [type]="hide" placeholder="Type your password">
-          <span mat-icon-button matSuffix (click)="hideShow()" >
+          <span mat-icon-button matSuffix (click)="hideShow()" class="cursor_pointer">
             <mat-icon>{{hidePasTex ? 'visibility_off' : 'visibility'}}</mat-icon>
           </span>
         </mat-form-field>
@@ -21,7 +21,7 @@
         <p class="forgot-password">Forgot Password?</p>
         <button type="submit" mat-raised-button class="login-button">Login</button>
         <p class="orSignUpSe">Or Sign Up Using</p>
-        <button mat-flat-button class="orSignUpButtonLog">SIGN UP</button>
+        <button mat-flat-button class="orSignUpButtonLog" (click)="signUP()">SIGN UP</button>
       </form>
     </div>
   </div>

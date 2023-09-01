@@ -7,7 +7,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class UserService {
   url = environment.apiUrl;
   constructor(private httpClient: HttpClient) { }
-  
+
+  login(data: any) {
+    return this.httpClient.post(this.url + "user/login", data, {
+      headers: new HttpHeaders().set('Content-Type', "application/json")
+    })
+  }
+
   signup(data: any) {
     return this.httpClient.post(this.url + "user/signup", data, {
       headers: new HttpHeaders().set('Content-Type', "application/json")

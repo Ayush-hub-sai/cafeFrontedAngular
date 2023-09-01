@@ -134,3 +134,7 @@
     background: #e86014;
   }
 }
+
+.cursor_pointer {
+  cursor: pointer;
+}

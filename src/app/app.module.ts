@@ -5,6 +5,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
 import { MaterialComponentModule } from './material-component/material-component.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION } from "ngx-ui-loader"
+
+const ngxUiLoaderConfig: NgxUiLoaderConfig = {
+  text: "Loading...",
+  textColor: "white",
+  textPosition: "center-center",
+  pbColor: "red",
+  bgsColor: "red",
+  fgsColor: "red",
+  fgsType: SPINNER.doubleBounce,
+  fgsSize: 100,
+  pbDirection: PB_DIRECTION.leftToRight,
+  pbThickness: 5
+}
+
 @NgModule({
   declarations: [
     AppComponent
@@ -14,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AppRoutingModule,
     MaterialComponentModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
