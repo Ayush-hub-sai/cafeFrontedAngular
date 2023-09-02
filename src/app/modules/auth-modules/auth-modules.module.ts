@@ -6,6 +6,7 @@ import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { RouterModule } from '@angular/router';
 import { MaterialComponentModule } from 'src/app/material-component/material-component.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     declarations: [
         SigninComponent,
@@ -15,7 +16,9 @@ import { MaterialComponentModule } from 'src/app/material-component/material-com
     imports: [
         CommonModule,
         MaterialComponentModule,
-        RouterModule.forChild(AuthModulesRoutes)
+        RouterModule.forChild(AuthModulesRoutes),
+        FormsModule,    
+        ReactiveFormsModule
     ]
 })
 export class AuthModule { }
