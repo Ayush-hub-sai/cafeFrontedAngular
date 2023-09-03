@@ -12,13 +12,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading...",
   textColor: "white",
   textPosition: "center-center",
-  pbColor: "red",
-  bgsColor: "red",
-  fgsColor: "red",
+  // pbColor: "white",
+  // bgsColor: "white",
+  fgsColor: "white",
   fgsType: SPINNER.doubleBounce,
-  fgsSize: 100,
-  pbDirection: PB_DIRECTION.leftToRight,
-  pbThickness: 5
+  fgsSize: 250,
+  // pbDirection: PB_DIRECTION.leftToRight,
+  // pbThickness: 5
 }
 
 @NgModule({

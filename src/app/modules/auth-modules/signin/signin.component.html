@@ -2,17 +2,16 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">LOGIN</h5>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
-          <!-- <mat-icon matPrefix>account_circle</mat-icon> -->
-          <input matInput placeholder="Type your email">
+          <input matInput placeholder="Type your email" formControlName="email">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Password</mat-label>
-          <!-- <mat-icon matPrefix>lock</mat-icon> -->
-          <input matInput [type]="hide" placeholder="Type your password">
+          <input matInput [type]="hide" placeholder="Type your password" formControlName="password">
           <span mat-icon-button matSuffix (click)="hideShow()" class="cursor_pointer">
             <mat-icon>{{hidePasTex ? 'visibility_off' : 'visibility'}}</mat-icon>
           </span>
@@ -21,8 +20,10 @@
         <p class="forgot-password">Forgot Password?</p>
         <button type="submit" mat-raised-button class="login-button">Login</button>
       </form>
+
       <p class="orSignUpSe">Or Sign Up Using</p>
       <button mat-flat-button class="orSignUpButtonLog" (click)="signUP()">SIGN UP</button>
+
     </div>
   </div>
 </div>

@@ -67,9 +67,7 @@ export class SignupComponent implements OnInit {
         }
         this.spinner.stop()
       },
-      complete: () => {
-
-      },
+      complete: () => { },
     });
   }
 
