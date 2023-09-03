@@ -4,9 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import BrowserAnimationsModule
 import { MaterialComponentModule } from './material-component/material-component.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION } from "ngx-ui-loader"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading...",
@@ -25,6 +26,7 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   declarations: [
     AppComponent
   ],
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -35,11 +37,11 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     HttpClientModule,
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig)
   ],
-  // exports: [
-  //   FormsModule,
-  //   ReactiveFormsModule
-  // ],
-  providers: [],
+
+  providers: [
+    HttpClientModule, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true }
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

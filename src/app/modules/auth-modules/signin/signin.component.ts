@@ -65,7 +65,7 @@ export class SigninComponent implements OnInit {
         if (response.status == 1) {
           this.spinner.stop()
           console.log(response);
-          localStorage.setItem("token",response.token)
+          localStorage.setItem("token", response.token)
           this._snackBar.success(response.message);
           this.router.navigate(['/dashboard'])
         }
