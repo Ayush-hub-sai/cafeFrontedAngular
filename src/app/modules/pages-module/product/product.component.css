@@ -1,0 +1,10 @@
+mat-card {
+    margin: 20px; /* Add margins for spacing */
+    width: 100%; /* Optionally, set the card's width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for elevation */
+  }
+  
+  .mat-table {
+    width: 100%; /* Make the table expand to the card's width */
+  }
+  

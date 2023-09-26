@@ -1,1 +1,35 @@
-<p>sidebar works!</p>
+<mat-toolbar color="primary" class="example-toolbar">
+  <div class="col-md-8 d-flex">
+    <button mat-icon-button (click)="isExpanded = !isExpanded">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Cafe Management</h1>
+  </div>
+  <div class="logout-button-container col-md-4">
+    <button mat-button (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()">
+    <mat-nav-list>
+      <mat-list-item *ngFor="let item of menuItems" (click)="toggleActive(item)"
+        [ngClass]="{'active-menu-item': item.isActive, 'menu-item': !item.isActive}">
+        <a class="full-width" *ngIf="isExpanded || isShowing" [routerLink]="item.stateRef">{{item.name}}</a>
+        <mat-icon mat-list-icon>{{item?.icon}}</mat-icon>
+      </mat-list-item>
+
+    </mat-nav-list>
+    <mat-nav-list>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content">
+    <!-- <app-dashboard></app-dashboard> -->
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

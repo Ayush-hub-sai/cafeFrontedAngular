@@ -9,13 +9,34 @@ export const PagesRoutes: Routes = [
         component: PagesModuleComponent,
         children: [
             { path: "dashboard", component: DashboardComponent },
-            // {
-            //     path: "paymentMethod",
-            //     loadChildren: () =>
-            //         import(
-            //             "src/app/modules/pages-module/lookup/payment-method/payment-method.module"
-            //         ).then((m) => m.PaymentMethodModule),
-            // },
+            {
+                path: "bill",
+                loadChildren: () =>
+                    import(
+                        "src/app/modules/pages-module/bill/bill.module"
+                    ).then((m) => m.BillModule),
+            },
+            {
+                path: "category",
+                loadChildren: () =>
+                    import(
+                        "src/app/modules/pages-module/category/category.module"
+                    ).then((m) => m.CategoryModule),
+            },
+            {
+                path: "product",
+                loadChildren: () =>
+                    import(
+                        "src/app/modules/pages-module/product/product.module"
+                    ).then((m) => m.ProductModule),
+            },
+            {
+                path: "user",
+                loadChildren: () =>
+                    import(
+                        "src/app/modules/pages-module/user/user.module"
+                    ).then((m) => m.UserModules),
+            }
         ]
     }
 ]

@@ -8,11 +8,14 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Injectable()
 export class TokenInterceptorInterceptor implements HttpInterceptor {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private _snackBar: SnackbarService,
+  ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem("token")
@@ -25,9 +28,9 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((err) => {
         if (err instanceof HttpErrorResponse) {
-          console.log(err.url);
           if (err.status === 401 || err.status === 403) {
-            if (this.router.url === '/auth/signIn') { }
+            if (this.router.url === '/auth/signIn') {
+            }
             else {
               localStorage.clear()
               this.router.navigate(['/auth/signIn'])
@@ -37,6 +40,6 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
         return throwError(err)
       })
     );
-    
+
   }
 }

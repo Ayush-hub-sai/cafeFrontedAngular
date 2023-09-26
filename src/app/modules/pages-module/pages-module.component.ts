@@ -15,18 +15,24 @@ export class PagesModuleComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loadPage()
+    // this.loadPage()
   }
 
   loadPage() {
     if (this.token != null) {
-      this.userService.checkToken().subscribe((response: any) => {
-        this.router.navigate(['/dashboard'])
-      },
-        (error: any) => {
-          console.log(error);
+      this.userService.checkToken().subscribe({
+        next: (response: any) => {
+          if (response.status == 1) {
+            
+            // this.router.navigate(['/dashboard'])
+          }
 
-        })
+        },
+        error: (error) => { },
+        complete: () => { },
+      });
     }
   }
+
 }
+

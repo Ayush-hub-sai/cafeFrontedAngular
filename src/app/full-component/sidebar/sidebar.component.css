@@ -1,0 +1,25 @@
+.mat-drawer-container {
+  position: inherit !important;
+}
+
+.mat-drawer {
+  top: 63.5px !important;
+}
+
+.logout-button-container {
+  display: flex;
+  justify-content: flex-end;
+  /* Align content to the right */
+  align-items: center;
+  /* Center vertically within the container */
+}
+
+/* CSS class for active menu item */
+/* CSS class for active menu item */
+.active-menu-item {
+  background-color: orange !important;
+  color: white !important;
+}
+
+/* .menu-item {
+} */

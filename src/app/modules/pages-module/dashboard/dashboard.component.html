@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<div class="d-flex">
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>
+        Total Category
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{dashData?.category}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/category']">Category</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>
+        Total Product
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{dashData?.product}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="accent" [routerLink]="['/product']">Product</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>
+        Total Bill
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{dashData?.bill}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="warn" [routerLink]="['/bill']">Bill </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

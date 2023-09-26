@@ -15,13 +15,7 @@ const routes: Routes = [
         (m) => m.AuthModule
       ),
   },
-  {
-    path: "error",
-    loadChildren: () =>
-      import("src/app/modules/errors/errors.module").then(
-        (m) => m.ErrorsModule
-      ),
-  },
+
   {
     path: "",
     // canActivate: [AuthGuard],
@@ -33,6 +27,14 @@ const routes: Routes = [
     data: {
       expectedRole: ['admin', 'user ']
     }
+  },
+
+  {
+    path: "error",
+    loadChildren: () =>
+      import("src/app/modules/errors/errors.module").then(
+        (m) => m.ErrorsModule
+      ),
   },
 
   { path: "**", redirectTo: "error/404" },

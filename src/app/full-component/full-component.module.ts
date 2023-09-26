@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { MaterialComponentModule } from '../material-component/material-component.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -11,7 +12,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     SidebarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialComponentModule,
+    RouterModule,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent
   ]
 })
 export class FullComponentModule { }

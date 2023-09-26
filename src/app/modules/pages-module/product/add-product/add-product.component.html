@@ -1,0 +1,25 @@
+<h2>Edit Product</h2>
+<form [formGroup]="userForm" (ngSubmit)="saveChanges()">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Category Name" formControlName="categoryName">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" formControlName="description">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Price" formControlName="price">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Status" formControlName="status">
+  </mat-form-field>
+
+  <div class="modal-actions">
+    <button mat-raised-button color="primary" type="submit">Save</button>
+    <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+/* card.component.css */
+.custom-card {
+    width: 300px;
+    margin: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-card mat-card-header {
+    background-color: #2196F3;
+    color: white;
+    text-align: center; /* Center-align the text */
+    justify-content: center;
+  }
+  
+  .custom-card mat-card-content {
+    padding: 16px;
+  }
+  
+  .custom-card mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+  }
+  

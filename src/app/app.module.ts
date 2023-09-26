@@ -8,7 +8,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, SPINNER, PB_DIRECTION } from "ngx-ui-loader"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorInterceptor } from './services/token-interceptor.interceptor';
-
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   text: "Loading...",
   textColor: "white",
