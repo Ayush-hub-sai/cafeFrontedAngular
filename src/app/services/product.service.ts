@@ -36,7 +36,7 @@ export class ProductService {
     })
   }
 
-  deleteProduct(data: any) {
-    return this.httpClient.delete(this.url + "/product/deleteProduct", data)
+  deleteProduct(id: number) {
+    return this.httpClient.delete(`${this.url}/product/deleteProduct/${id}`);
   }
 }

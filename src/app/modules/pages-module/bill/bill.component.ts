@@ -6,6 +6,7 @@ import { BillService } from 'src/app/services/bill.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-bill',
@@ -13,7 +14,7 @@ import { MatSort } from '@angular/material/sort';
   styleUrls: ['./bill.component.css']
 })
 export class BillComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'Email', 'ContactNumber', 'Download'];
+  displayedColumns: string[] = ['Name', 'Email', 'ContactNumber', 'Action'];
   dataSource!: MatTableDataSource<any>; // Initialize as MatTableDataSource
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -55,6 +56,35 @@ export class BillComponent implements OnInit {
       },
       complete: () => { },
     });
+  }
+
+  deleteBill(element: any) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Do you want to delete bill? ',
+      icon: 'error',
+      confirmButtonText: 'Yes',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: '#673ab7',
+      cancelButtonColor: 'red'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.billService.deleteBill(element.id).subscribe({
+          next: (response: any) => {
+            this.spinner.stop();
+            this._snackBar.success(response.message)
+            this.getBill()
+          },
+          error: (error) => {
+            this.spinner.stop();
+          },
+          complete: () => { },
+        });
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    })
   }
 
   applyFilter(filterValue: any) {

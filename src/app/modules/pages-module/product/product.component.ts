@@ -8,6 +8,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/services/product.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { AddProductComponent } from './add-product/add-product.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product',
@@ -34,10 +35,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getUser();
+    this.getProduct();
   }
 
-  getUser() {
+  getProduct() {
     this.spinner.start();
 
     this.productService.getProduct().subscribe({
@@ -70,6 +71,57 @@ export class ProductComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  async openProductStatus(user: any) {
+    console.log(user);
+    
+    var data = {
+      status: user.status == "true" ? "false" : user.status == "false" ? "true" : "true",
+      id: user.id
+    }
+    await this.productService.updateProductStatus(data).subscribe({
+      next: (response: any) => {
+        if (response.status == 1) {
+          this.spinner.stop();
+          this._snackBar.success(response.message);
+          this.getProduct()
+        }
+      },
+      error: (error) => {
+        this.spinner.stop();
+      },
+      complete: () => { },
+    });
+  }
+
+  deleteProduct(element: any) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Do you want to delete product? ',
+      icon: 'error',
+      confirmButtonText: 'Yes',
+      showCancelButton: true,
+      cancelButtonText: 'No',
+      confirmButtonColor: '#673ab7',
+      cancelButtonColor: 'red'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.productService.deleteProduct(element.id).subscribe({
+          next: (response: any) => {
+            this.spinner.stop();
+            this._snackBar.success(response.message)
+            this.getProduct()
+          },
+          error: (error) => {
+            this.spinner.stop();
+          },
+          complete: () => { },
+        });
+      }
+      else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    })
   }
 
   applyFilter(filterValue: any) {

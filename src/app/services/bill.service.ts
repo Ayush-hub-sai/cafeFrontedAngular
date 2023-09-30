@@ -20,8 +20,9 @@ export class BillService {
   getBill() {
     return this.httpClient.get(this.url + "/bill/getBill/")
   }
-
-  deleteBill(data: any) {
-    return this.httpClient.delete(this.url + "/bill/deleteBill", data)
+  
+  deleteBill(id: number) {
+    return this.httpClient.delete(`${this.url}/bill/deleteBill/${id}`);
   }
+
 }

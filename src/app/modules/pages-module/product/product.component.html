@@ -33,6 +33,13 @@
           <button mat-icon-button color="primary" matTooltip="Edit" (click)="openEditUserModal(element)">
             <mat-icon>edit</mat-icon>
           </button>
+          <button mat-icon-button aria-label="Delete" color="warn" matTooltip="Delete" (click)="deleteProduct(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" matTooltip="Update Status">
+            <mat-slide-toggle [checked]="element.status === 'true'" (click)="openProductStatus(element)">
+            </mat-slide-toggle>
+          </button>
 
         </td>
       </ng-container>
@@ -49,4 +56,3 @@
 
   </mat-card-content>
 </mat-card>
-
