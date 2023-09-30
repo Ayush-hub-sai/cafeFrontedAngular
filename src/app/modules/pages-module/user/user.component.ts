@@ -43,7 +43,6 @@ export class UserComponent implements OnInit {
       next: (response: any) => {
         this.spinner.stop();
         this.dataSource.data = response;
-        // Assign data to dataSource.data
       },
       error: (error) => {
         if (error.error) {
@@ -61,15 +60,24 @@ export class UserComponent implements OnInit {
     });
   }
 
-  openEditUserModal(user: any) {
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.width = '50%'; // Set the desired width
-    // dialogConfig.height = 'auto'; // Set the desired height
-    // dialogConfig.data = user
-    // const dialogRef = this.dialog.open(AddUserComponent, dialogConfig);
-
-    // dialogRef.afterClosed().subscribe(result => {
-    // });
+  async openEditUserModal(user: any) {
+    var data = {
+      status: user.status == "true" ? "false" : user.status == "false" ? "true" : "true",
+      id: user.id
+    }
+    await this.usersService.updateUserStatus(data).subscribe({
+      next: (response: any) => {
+        if (response.status == 1) {
+          this.spinner.stop();
+          this._snackBar.success(response.message);
+          this.getUser()
+        }
+      },
+      error: (error) => {
+        this.spinner.stop();
+      },
+      complete: () => { },
+    });
   }
 
   applyFilter(filterValue: any) {

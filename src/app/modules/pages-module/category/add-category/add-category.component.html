@@ -1,1 +1,18 @@
-<p>add-category works!</p>
+<mat-card>
+  <mat-card-content>
+    <mat-card-subtitle *ngIf="data =='';else notLoggedIn">Add Category</mat-card-subtitle>
+    <ng-template #notLoggedIn>
+      <mat-card-subtitle>Update Category</mat-card-subtitle>
+    </ng-template>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>Category Name</mat-label>
+        <input matInput formControlName="categoryName" placeholder="Enter cateory name" />
+        <mat-error *ngIf="myForm.get('categoryName')?.hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" type="submit" class="pull_right">Submit</button>
+      <br>
+    </form>
+  </mat-card-content>
+</mat-card>

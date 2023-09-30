@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { ProductService } from 'src/app/services/product.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { UsersDataService } from 'src/app/services/users-data.service';
 import { AddProductComponent } from './add-product/add-product.component';
 
 @Component({
@@ -18,6 +17,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 export class ProductComponent implements OnInit {
   displayedColumns: string[] = ['Name', 'Description', 'Price', 'Status', 'categoryName', 'Edit'];
   dataSource: MatTableDataSource<any>; // Initialize as MatTableDataSource
+
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   constructor(
@@ -60,6 +60,7 @@ export class ProductComponent implements OnInit {
       complete: () => { },
     });
   }
+
   openEditUserModal(user: any) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = '50%'; // Set the desired width
@@ -70,6 +71,7 @@ export class ProductComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
   applyFilter(filterValue: any) {
     this.dataSource.filter = filterValue.target.value.trim().toLowerCase();
     if (this.dataSource.paginator) {

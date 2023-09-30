@@ -16,7 +16,7 @@ export class CategoryService {
   }
 
   getCategory() {
-    return this.httpClient.get(this.url + "/category/getCategory/")
+    return this.httpClient.get(this.url + "/category/getCategory")
   }
 
   updateCategory(data: any) {
