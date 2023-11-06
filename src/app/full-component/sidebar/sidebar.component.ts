@@ -93,7 +93,6 @@ export class SidebarComponent implements OnInit {
   highlightActiveMenuItem() {
     const currentRoute = this.activatedRoute.root;
     const activeRoute = this.getActiveRoute(currentRoute);
-
     // Clear active state from all menu items
     this.menuItems.forEach((item) => (item.isActive = false));
 
@@ -102,6 +101,7 @@ export class SidebarComponent implements OnInit {
       const matchedMenuItem = this.menuItems.find(
         (item) => item.stateRef === activeRoute.routeConfig?.path
       );
+
       if (matchedMenuItem) {
         matchedMenuItem.isActive = true;
       }

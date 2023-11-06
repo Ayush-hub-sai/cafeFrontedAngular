@@ -33,7 +33,7 @@ export class AddUserComponent implements OnInit {
     });
   }
   saveChanges() {
-    this.dialogRef.close();
+    this.dialogRef.close()
   }
 
   closeDialog() {

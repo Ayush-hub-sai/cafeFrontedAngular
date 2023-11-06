@@ -36,9 +36,10 @@
           </span>
         </mat-form-field>
 
-        <button mat-raised-button class="login-button"
-          [disabled]="!(signUpForm.valid && signUpForm.dirty)">Signup</button>
+        <button mat-raised-button class="login-button text-light fw-bold cursor_pointer "
+          [disabled]="!(signUpForm.valid && signUpForm.dirty)">Sign Up</button>
       </form>
+      <p class="text-end mt-2"><a (click)="goToLogin()">Login</a> </p>
       <p class="orSignUp">Or Sign Up Using</p>
       <span class="fatwgoIcon">
         <i class="fab fa-facebook"></i> &nbsp;

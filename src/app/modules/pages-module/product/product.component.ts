@@ -74,8 +74,6 @@ export class ProductComponent implements OnInit {
   }
 
   async openProductStatus(user: any) {
-    console.log(user);
-    
     var data = {
       status: user.status == "true" ? "false" : user.status == "false" ? "true" : "true",
       id: user.id
